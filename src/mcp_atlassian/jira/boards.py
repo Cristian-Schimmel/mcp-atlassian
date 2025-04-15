@@ -20,7 +20,7 @@ class BoardsMixin(JiraClient):
         project_key: str | None = None,
         board_type: str | None = None,
         start: int = 0,
-        limit: int = 50,
+        limit: int = 500,
     ) -> list[dict[str, Any]]:
         """
         Get boards from Jira by name, project key, or type.
@@ -60,7 +60,7 @@ class BoardsMixin(JiraClient):
         project_key: str | None = None,
         board_type: str | None = None,
         start: int = 0,
-        limit: int = 50,
+        limit: int = 500,
     ) -> list[JiraBoard]:
         """
         Get boards as JiraBoards model from Jira by name, project key, or type.
