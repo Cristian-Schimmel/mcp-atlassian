@@ -25,7 +25,7 @@ class SearchMixin(JiraClient):
         | set[str]
         | None = "summary,description,status,assignee,reporter,labels,priority,created,updated,issuetype",
         start: int = 0,
-        limit: int = 50,
+        limit: int = 500,
         expand: str | None = None,
         projects_filter: str | None = None,
     ) -> JiraSearchResult:
@@ -109,7 +109,7 @@ class SearchMixin(JiraClient):
             raise Exception(f"Error searching issues: {str(e)}") from e
 
     def get_project_issues(
-        self, project_key: str, start: int = 0, limit: int = 50
+        self, project_key: str, start: int = 0, limit: int = 500
     ) -> JiraSearchResult:
         """
         Get all issues for a project.
@@ -129,7 +129,7 @@ class SearchMixin(JiraClient):
         return self.search_issues(jql, start=start, limit=limit)
 
     def get_epic_issues(
-        self, epic_key: str, start: int = 0, limit: int = 50
+        self, epic_key: str, start: int = 0, limit: int = 500
     ) -> JiraSearchResult:
         """
         Get all issues linked to a specific epic.
@@ -191,7 +191,7 @@ class SearchMixin(JiraClient):
         jql: str,
         fields: str = "*all",
         start: int = 0,
-        limit: int = 50,
+        limit: int = 500,
         expand: str | None = None,
     ) -> JiraSearchResult:
         """
@@ -244,7 +244,7 @@ class SearchMixin(JiraClient):
         sprint_id: str,
         fields: str = "*all",
         start: int = 0,
-        limit: int = 50,
+        limit: int = 500,
     ) -> JiraSearchResult:
         """
         Get all issues linked to a specific sprint.
